@@ -10,7 +10,7 @@ import click
 from rich.console import Console
 from rich.table import Table
 
-from gh_export.cloner import (
+from ghx.cloner import (
     Action,
     RepoResult,
     SyncSummary,
@@ -18,7 +18,7 @@ from gh_export.cloner import (
     delete_repo,
     move_repo,
 )
-from gh_export.github_api import (
+from ghx.github_api import (
     RepoInfo,
     filter_repos,
     list_org_repos,

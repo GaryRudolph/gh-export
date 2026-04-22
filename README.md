@@ -1,4 +1,4 @@
-# gh-export
+# ghx
 
 Export and sync all GitHub repositories for an organization.
 
@@ -9,16 +9,16 @@ Requires [uv](https://docs.astral.sh/uv/) and Git.
 ### Run directly (no install)
 
 ```bash
-uv run gh-export --help
+uv run ghx --help
 ```
 
 ### Install globally
 
-Install `gh-export` as a standalone command on your PATH:
+Install `ghx` as a standalone command on your PATH:
 
 ```bash
 uv tool install .
-gh-export --help
+ghx --help
 ```
 
 After this, all examples below work without the `uv run` prefix.
@@ -99,13 +99,13 @@ order (highest precedence first):
 3. `<path>/.gh-export.toml`
 4. `~/.gh-export.toml`
 
-Before any API calls, `gh-export` prints the resolved settings (with an obfuscated
+Before any API calls, `ghx` prints the resolved settings (with an obfuscated
 token) so you can verify what values are in effect.
 
 ## Usage
 
 ```bash
-gh-export <ORG> <PATH> [OPTIONS]
+ghx <ORG> <PATH> [OPTIONS]
 ```
 
 `ORG` is the GitHub organization name. `PATH` is the output directory (created
@@ -118,22 +118,22 @@ pull the latest changes, clone any new repos, and handle removed or archived rep
 
 ```bash
 # Clone all repos for an org into ./acme
-gh-export acme ./acme
+ghx acme ./acme
 
 # Dry-run to preview what would happen
-gh-export acme ./acme --dry-run
+ghx acme ./acme --dry-run
 
 # Only private repos, exclude names matching a pattern
-gh-export acme ./acme --type private --exclude "^test-"
+ghx acme ./acme --type private --exclude "^test-"
 
 # Also clone wikis, use SSH transport
-gh-export acme ./acme --clone-wiki --ssh
+ghx acme ./acme --clone-wiki --ssh
 
 # Permanently delete removed/archived repos instead of moving them
-gh-export acme ./acme --delete
+ghx acme ./acme --delete
 
 # Custom directory names for moved repos
-gh-export acme ./acme --deleted-dir removed --archived-dir inactive
+ghx acme ./acme --deleted-dir removed --archived-dir inactive
 ```
 
 ### How it works
@@ -151,7 +151,7 @@ gh-export acme ./acme --deleted-dir removed --archived-dir inactive
 ## CLI Reference
 
 ```
-gh-export <ORG> <PATH> [OPTIONS]
+ghx <ORG> <PATH> [OPTIONS]
 
 Arguments:
   ORG                        GitHub organization name
